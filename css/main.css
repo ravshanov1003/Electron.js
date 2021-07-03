@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+.list {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    padding: 4px 8px 4px 40px;
+    border-radius: 5px;
+    list-style-type: none;
+    background: #eee;
+    font-size: 22px;
+    transition: 0.2s;
+}
+
+ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+ul li:hover {
+    background: #ddd;
+}
+
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 4px 16px;
+    border-radius: 0 5px 5px 0;
+}
+
+.close:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+#next {
+    position: absolute;
+    top: 85%;
+    right: 8%;
+}

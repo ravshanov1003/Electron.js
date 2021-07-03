@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyProject</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="list">
+        <h2 class="text-center">To Do List</h2>
+        <div id="myDIV" class="form-group col-md-3 m-3 w-100 d-flex">
+            <input type="text" id="myInput" class="form-control" placeholder="Title...">
+            <button type="button" onclick="addTodo()" class="btn btn-info">Add</button>
+        </div>
+        <ul id="toDoList">
+        </ul>
+    </div>
+
+    <div>
+        <button id="next" class="btn btn-success">Form Page -></button>
+    </div>
+    <script src="./main.js">
+        const button = document.getElementById('next');
+        button.addEventListener('click', () => {
+            console.log("hi");
+            addFormWindow()
+        });
+
+        // function addFormWindow() {
+        //     formWindow = new BrowserWindow({
+        //         width: 500,
+        //         height: 400,
+        //         icon: __dirname + "/img/form.png",
+        //     });
+        //     formWindow.loadURL(url.format({
+        //         pathname: path.join(__dirname, 'form.html'),
+        //         protocol: 'file:',
+        //         slashes: true
+        //     }));
+        //     formWindow.on('closed', () => {
+        //         formWindow = null;
+        //     });
+        // }
+    </script>
+    <script>
+        function addTodo() {
+            const inputValue = document.getElementById("myInput").value;
+            let li = document.createElement("li");
+            let txt = document.createTextNode(inputValue)
+            li.appendChild(txt)
+            let span = document.createElement("span")
+            let spanText = document.createTextNode("\u00D7")
+            span.appendChild(spanText)
+            span.className = "close"
+            li.appendChild(span)
+            span.onclick = function() {
+                this.parentElement.style.display = "none"
+            }
+            if (inputValue === " " || inputValue === "") {
+                alert("input is empty and Reload this page (ctrl + R)")
+            } else {
+                document.getElementById("toDoList").appendChild(li);
+            }
+            document.getElementById("myInput").value = " "
+        };
+    </script>
+</body>
+
+</html>
